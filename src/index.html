@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        async function getHelloMessage() {
+            try {
+                const ea = document.getElementById('inputField').value || "everyone";
+                const response = await fetch(`http://localhost:3000/hello/${ea}`, {
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                });
+                const helloMessage = await response.json();
+                alert(JSON.stringify(helloMessage));
+            } catch (error) {
+                console.error(error);
+            }
+        }
+    </script>
+</head>
+<body>
+    <input type="text" id="inputField" placeholder="Saisissez votre valeur" />
+    <button onclick="getHelloMessage()">Cliquez ici</button>
+</body>
+</html>

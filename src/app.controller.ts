@@ -8,6 +8,8 @@ export class AppController {
 
   @Get('/hello/:name')
   getHello(@Param('name') name: string): HelloMessage {
-    return { hello: `Hello, ${name}!` }; 
+    return { hello: `${name}!` }; 
   }
+
+  
 }
